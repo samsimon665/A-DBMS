@@ -1,0 +1,98 @@
+
+SQL> create user u1 identified by 12345;
+
+User created.
+
+
+SQL> grant connect,resource to u1;
+
+Grant succeeded.
+
+
+SQL> exit;
+
+
+
+Enter user-name: u1
+Enter password: 
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+
+SQL> create table customer(id int,name varchar(20),salary int);
+
+Table created.
+
+
+SQL> @trigger.sql
+
+Trigger created.
+
+
+SQL> insert into customer values(101,'sam',25000);
+old salary
+new salary 25000
+salary difference
+
+1 row created.
+
+SQL> 
+insert into customer values(102,'vishnu',35000);
+insert into customer values(103,'jithu',45000);
+insert into customer values(104,'prayag',55000);
+insert into customer values(105,'ashik',65000);
+SQL> old salary
+new salary 35000
+salary difference
+
+1 row created.
+
+SQL> old salary
+new salary 45000
+salary difference
+
+1 row created.
+
+SQL> old salary
+new salary 55000
+salary difference
+
+1 row created.
+
+SQL> old salary
+new salary 65000
+salary difference
+
+1 row created.
+
+SQL> select * from customer;
+
+	ID NAME 		    SALARY
+---------- -------------------- ----------
+       101 sam			     25000
+       102 vishnu		     35000
+       103 jithu		     45000
+       104 prayag		     55000
+       105 ashik		     65000
+
+SQL> update customer set salary=salary*1.1;      
+old salary 25000
+new salary 27500
+salary difference 2500
+old salary 35000
+new salary 38500
+salary difference 3500
+old salary 45000
+new salary 49500
+salary difference 4500
+old salary 55000
+new salary 60500
+salary difference 5500
+old salary 65000
+new salary 71500
+salary difference 6500
+
+5 rows updated.
+
+SQL> ^C  
+
